@@ -3,16 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NombreComponenteComponent } from './nombre-componente/nombre-componente.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { PagesComponent } from './pages/pages.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NombreComponenteComponent
+    PagesComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
