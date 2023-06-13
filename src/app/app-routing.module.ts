@@ -9,12 +9,14 @@ import { AuthRoutingModule } from './auth/auth-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { HomeComponent } from './pages/home/home.component';
 //import { UserComponent } from './user/user.component';
+import { NoPagesFoundComponent } from './pages/no-pages-found/no-pages-found.component';
 
 const routes: Routes = [
- { path: '', redirectTo: '/home', pathMatch: 'full' },
-// { path: '**', component: NoPagesFoundComponent },
+{ path: '', redirectTo: '/home', pathMatch: 'full' },
+{ component: HomeComponent , path: 'home' },
+{ component: NoPagesFoundComponent, path: '**', },
 
-{component:HomeComponent,path:'home'},
+
 // {component:UserComponent,path:'user',canActivate:[AuthGuard]},
 // {component:CustomerComponent,path:'customer',canActivate:[AuthGuard]},
 ];

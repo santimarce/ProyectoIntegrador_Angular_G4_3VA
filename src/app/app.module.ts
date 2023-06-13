@@ -15,12 +15,14 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { NavigationComponent } from './shared/navigation/navigation.component';
 import { HomeComponent } from './pages/home/home.component';
+import { NoPagesFoundComponent } from './pages/no-pages-found/no-pages-found.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     NavigationComponent,
     HomeComponent,
+    NoPagesFoundComponent,
     
     
     
