@@ -7,13 +7,14 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { AuthRoutingModule } from './auth/auth-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
+import { HomeComponent } from './pages/home/home.component';
 //import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
- { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+ { path: '', redirectTo: '/home', pathMatch: 'full' },
 // { path: '**', component: NoPagesFoundComponent },
 
-// {component:HomeComponent,path:'',canActivate:[AuthGuard]},
+{component:HomeComponent,path:'home'},
 // {component:UserComponent,path:'user',canActivate:[AuthGuard]},
 // {component:CustomerComponent,path:'customer',canActivate:[AuthGuard]},
 ];
@@ -21,7 +22,8 @@ const routes: Routes = [
 @NgModule({
   declarations:[],
   imports: [BrowserModule, RouterModule.forRoot(routes), 
-    AuthRoutingModule
+    AuthRoutingModule,
+    
   ],
   exports: [RouterModule]
 })
