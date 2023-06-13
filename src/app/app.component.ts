@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Sistema de Gestión de horarios ITS YAVIRAC';
+  opened = false;
 }

@@ -13,6 +13,9 @@
     alt="Angular Logo"
     src="../assets/images/logos/logo_negativo_yavirac.png"
   />
+
+  <!-- Sidenav 
+  <button mat-button (click)="opened = !opened" style="background-color: rgb(171, 171, 219);"><mat-icon>menu</mat-icon></button>-->
   <span>Bienvenido</span>
     <div class="spacer"></div>
     <a aria-label="Angular on twitter" target="_blank" rel="noopener" href="https://twitter.com/angular" title="Twitter">
@@ -27,10 +30,27 @@
         <path d="M21.58 7.19c-.23-.86-.91-1.54-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.86.23-1.54.91-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.91 1.54 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42c.86-.23 1.54-.91 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z"/>
       </svg>
     </a>
+
 </div>
+<br>
+<br>
+<br>
+<!-- Sidenav 
+<mat-sidenav-container>
+  <mat-sidenav [(opened)]="opened" mode="side">
+    <mat-list>
+      <mat-list-item><a routerLink="/dashboard">Dashboard</a></mat-list-item>
+      <mat-list-item><a routerLink="/students">Students</a></mat-list-item>
+      <mat-list-item><a routerLink="/teachers">Teachers</a></mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>-->
+
 
 <div class="content" role="main">
-
   <!-- Highlight Card -->
   <div class="card highlight-card card-small">
 
@@ -53,7 +73,9 @@
 
   </div>
 
-  <!-- Resources -->
+
+
+  <!-- Resources 
   <div class="card-container">
     <a class="card" target="_blank" rel="noopener" href="https://angular.io/tutorial">
       <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
@@ -65,13 +87,13 @@
       <span>CLI Documentation</span>
       <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
     </a>
-  </div>
+  </div>-->
 
   <!-- Next Steps -->
 
   <input type="hidden" #selection>
 
-  <!-- Terminal -->
+  <!-- Terminal 
   <div class="terminal" [ngSwitch]="selection.value">
       <pre *ngSwitchDefault>ng generate component xyz</pre>
       <pre *ngSwitchCase="'material'">ng add @angular/material</pre>
@@ -79,7 +101,7 @@
       <pre *ngSwitchCase="'dependency'">ng add _____</pre>
       <pre *ngSwitchCase="'test'">ng test</pre>
       <pre *ngSwitchCase="'build'">ng build</pre>
-  </div>
+  </div>-->
 
   <!-- Footer -->
   <footer>
@@ -103,4 +125,13 @@
 <!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<router-outlet></router-outlet>
+
+<!--<app-sidebar></app-sidebar>
+
+<mat-toolbar>
+  <mat-toolbar-row>
+    <h4>Righ Click</h4>
+    
+  </mat-toolbar-row>
+</mat-toolbar>-->
+

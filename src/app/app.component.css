@@ -290,3 +290,21 @@
           visibility: hidden;
       }
   }
+
+
+   /*MATERIAL*/
+   mat-sidenav-container{
+    /*height: calc(205vh-115vh);*/
+    background-color: #6793be;
+    width: auto;
+    height: auto;
+   }
+
+   mat-sidenav{
+    width: 200px;
+    background-color: #a1aebb;
+   }
+
+   mat-toolbar{
+    background-color: rgb(82, 24, 189);
+   }
