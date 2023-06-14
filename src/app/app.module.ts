@@ -16,6 +16,9 @@ import { MatListModule } from '@angular/material/list';
 import { NavigationComponent } from './shared/navigation/navigation.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NoPagesFoundComponent } from './pages/no-pages-found/no-pages-found.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { StudentsComponent } from './pages/students/students.component';
+import { TeachersComponent } from './pages/teachers/teachers.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +26,9 @@ import { NoPagesFoundComponent } from './pages/no-pages-found/no-pages-found.com
     NavigationComponent,
     HomeComponent,
     NoPagesFoundComponent,
+    DashboardComponent,
+    StudentsComponent,
+    TeachersComponent,
     
     
     
