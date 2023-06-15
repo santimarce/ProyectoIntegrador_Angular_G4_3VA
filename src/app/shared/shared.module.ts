@@ -11,13 +11,17 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { VistarapidaComponent } from './vistarapida/vistarapida.component';
 
 
 
 @NgModule({
   declarations: [
     SharedComponent,
-    NavbarComponent
+    NavbarComponent,
+    SidebarComponent,
+    VistarapidaComponent
   ],
   imports: [
     CommonModule,
@@ -31,6 +35,7 @@ import { MatListModule } from '@angular/material/list';
     MatSidenavModule,
     MatListModule
   ],
-  exports: [NavbarComponent]
+  exports: [NavbarComponent,
+  SidebarComponent]
 })
 export class SharedModule { }

@@ -8,6 +8,7 @@ import { StudentsComponent } from './students/students.component';
 import { TeachersComponent } from './teachers/teachers.component';
 import { NopagesfoundComponent } from './nopagesfound/nopagesfound.component';
 import { SharedModule } from '../shared/shared.module';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { SharedModule } from '../shared/shared.module';
     DashboardComponent,
     StudentsComponent,
     TeachersComponent,
-    NopagesfoundComponent
+    NopagesfoundComponent,
+    AdminComponent
   ],
   imports: [
     CommonModule,

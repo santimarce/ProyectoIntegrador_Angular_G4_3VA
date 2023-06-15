@@ -11,6 +11,9 @@ import { MatToolbarModule} from '@angular/material/toolbar';
 import { MatIconModule} from '@angular/material/icon';
 import { MatListModule} from '@angular/material/list';
 import { FormsModule } from '@angular/forms';
+import { AuthModule } from './auth/auth.module';
+import { PagesComponent } from './pages/pages.component';
+import { PagesModule } from './pages/pages.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,8 @@ import { FormsModule } from '@angular/forms';
     MatToolbarModule,
     MatIconModule,
     MatListModule,
+    AuthModule,
+    PagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
