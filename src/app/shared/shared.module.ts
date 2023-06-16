@@ -13,6 +13,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { VistarapidaComponent } from './vistarapida/vistarapida.component';
+import { GrillaComponent } from './grilla/grilla.component';
+import { CruddocentesComponent } from './cruddocentes/cruddocentes.component';
 
 
 
@@ -21,7 +23,9 @@ import { VistarapidaComponent } from './vistarapida/vistarapida.component';
     SharedComponent,
     NavbarComponent,
     SidebarComponent,
-    VistarapidaComponent
+    VistarapidaComponent,
+    GrillaComponent,
+    CruddocentesComponent
   ],
   imports: [
     CommonModule,
@@ -36,6 +40,7 @@ import { VistarapidaComponent } from './vistarapida/vistarapida.component';
     MatListModule
   ],
   exports: [NavbarComponent,
-  SidebarComponent]
+    SidebarComponent,
+    GrillaComponent]
 })
 export class SharedModule { }

@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, pathMatch: 'full' },
   { path:'students', component: StudentsComponent},
   { path: 'teachers', component: TeachersComponent },
-    { path:'admin', component: AdminComponent}
+  { path:'admin', component: AdminComponent}
 ];
 
 @NgModule({

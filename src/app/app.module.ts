@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -12,8 +12,8 @@ import { MatIconModule} from '@angular/material/icon';
 import { MatListModule} from '@angular/material/list';
 import { FormsModule } from '@angular/forms';
 import { AuthModule } from './auth/auth.module';
-import { PagesComponent } from './pages/pages.component';
 import { PagesModule } from './pages/pages.module';
+
 
 @NgModule({
   declarations: [
@@ -31,6 +31,7 @@ import { PagesModule } from './pages/pages.module';
     MatIconModule,
     MatListModule,
     AuthModule,
+    HttpClientModule,
     PagesModule
   ],
   providers: [],
