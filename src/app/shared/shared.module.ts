@@ -41,6 +41,7 @@ import { CruddocentesComponent } from './cruddocentes/cruddocentes.component';
   ],
   exports: [NavbarComponent,
     SidebarComponent,
+    VistarapidaComponent,
     GrillaComponent]
 })
 export class SharedModule { }
