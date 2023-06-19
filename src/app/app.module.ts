@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatSidenavModule} from '@angular/material/sidenav';
 import { MatToolbarModule} from '@angular/material/toolbar';
 import { MatIconModule} from '@angular/material/icon';
@@ -26,6 +27,7 @@ import { PagesModule } from './pages/pages.module';
     MatSlideToggleModule,
     BrowserAnimationsModule,
     MatSidenavModule,
+    MatFormFieldModule,
     FormsModule,
     MatToolbarModule,
     MatIconModule,
