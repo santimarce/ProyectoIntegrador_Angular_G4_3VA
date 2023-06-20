@@ -20,6 +20,7 @@ import { VistarapidaComponent } from './vistarapida/vistarapida.component';
 import { GrillaComponent } from './grilla/grilla.component';
 import { CruddocentesComponent } from './cruddocentes/cruddocentes.component';
 import { CampoTextoCatalogoComponent } from './campo-texto-catalogo/campo-texto-catalogo.component';
+import { NavbaradminComponent } from './navbaradmin/navbaradmin.component';
 
 
 
@@ -31,7 +32,8 @@ import { CampoTextoCatalogoComponent } from './campo-texto-catalogo/campo-texto-
     VistarapidaComponent,
     GrillaComponent,
     CruddocentesComponent,
-    CampoTextoCatalogoComponent
+    CampoTextoCatalogoComponent,
+    NavbaradminComponent
   ],
   imports: [
     CommonModule,
@@ -53,6 +55,7 @@ import { CampoTextoCatalogoComponent } from './campo-texto-catalogo/campo-texto-
     SidebarComponent,
     VistarapidaComponent,
     GrillaComponent,
-    CampoTextoCatalogoComponent]
+    CampoTextoCatalogoComponent,
+    NavbaradminComponent]
 })
 export class SharedModule { }
