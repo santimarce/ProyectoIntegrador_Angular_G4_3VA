@@ -17,7 +17,6 @@ import { GrillaComponent } from './grilla/grilla.component';
 import { CruddocentesComponent } from './cruddocentes/cruddocentes.component';
 
 
-
 @NgModule({
   declarations: [
     SharedComponent,
@@ -25,7 +24,8 @@ import { CruddocentesComponent } from './cruddocentes/cruddocentes.component';
     SidebarComponent,
     VistarapidaComponent,
     GrillaComponent,
-    CruddocentesComponent
+    CruddocentesComponent,
+
   ],
   imports: [
     CommonModule,

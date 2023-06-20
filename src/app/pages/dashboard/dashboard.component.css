@@ -156,7 +156,7 @@ svg#rocket-smoke {
 a,
 a:visited,
 a:hover {
-    color: #1976d2;
+    color: #cbdcec;
     text-decoration: none;
 }
 
@@ -309,3 +309,9 @@ mat-sidenav {
 mat-toolbar {
     background-color: rgb(82, 24, 189);
 } 
+
+.login-span{
+    margin:0.3rem;
+    font-size: medium;
+}
+

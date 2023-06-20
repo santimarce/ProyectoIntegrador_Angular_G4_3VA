@@ -14,11 +14,16 @@ import { MatListModule} from '@angular/material/list';
 import { FormsModule } from '@angular/forms';
 import { AuthModule } from './auth/auth.module';
 import { PagesModule } from './pages/pages.module';
+import { MatButtonModule } from '@angular/material/button';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -34,7 +39,11 @@ import { PagesModule } from './pages/pages.module';
     MatListModule,
     AuthModule,
     HttpClientModule,
-    PagesModule
+    PagesModule,
+    MatButtonModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
