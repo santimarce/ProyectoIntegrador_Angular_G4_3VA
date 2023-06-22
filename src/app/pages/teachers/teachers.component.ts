@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-
+import { FormControl } from '@angular/forms';
+import { Observable, map, startWith } from 'rxjs';
 
 @Component({
   selector: 'app-teachers',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./teachers.component.css']
 })
 export class TeachersComponent {
-
+  
 }

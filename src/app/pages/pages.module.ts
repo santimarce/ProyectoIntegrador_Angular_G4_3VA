@@ -9,6 +9,9 @@ import { TeachersComponent } from './teachers/teachers.component';
 import { NopagesfoundComponent } from './nopagesfound/nopagesfound.component';
 import { SharedModule } from '../shared/shared.module';
 import { AdminComponent } from './admin/admin.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -18,11 +21,15 @@ import { AdminComponent } from './admin/admin.component';
     TeachersComponent,
     NopagesfoundComponent,
     AdminComponent
+    
   ],
   imports: [
     CommonModule,
     PagesRoutingModule,
-    SharedModule
+    SharedModule,
+    MatAutocompleteModule,
+    MatInputModule,
+    MatFormFieldModule
   ]
 })
 export class PagesModule { }

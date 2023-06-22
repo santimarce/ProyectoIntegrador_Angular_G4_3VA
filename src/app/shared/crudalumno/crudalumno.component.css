@@ -1,0 +1,27 @@
+h1{
+  text-align: center;
+  margin: auto;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    background-color: #ffffff;
+    text-align: center;
+    margin: auto;
+    /*border: 3px solid rgb(206, 145, 76);*/
+  }
+  
+  .example-full-width {
+    width: 100%;
+    background-color: rgb(228, 142, 84);
+    border: 1px solid black;
+    padding: auto;
+  }
+
+  /*.input1{
+    background-color: aqua;
+  }*/
+
+  

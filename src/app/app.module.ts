@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule} from '@angular/material/sidenav';
 import { MatToolbarModule} from '@angular/material/toolbar';
@@ -13,7 +14,8 @@ import { MatListModule} from '@angular/material/list';
 import { FormsModule } from '@angular/forms';
 import { AuthModule } from './auth/auth.module';
 import { PagesModule } from './pages/pages.module';
-
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -26,13 +28,16 @@ import { PagesModule } from './pages/pages.module';
     MatSlideToggleModule,
     BrowserAnimationsModule,
     MatSidenavModule,
+    MatAutocompleteModule,
     FormsModule,
     MatToolbarModule,
     MatIconModule,
     MatListModule,
     AuthModule,
     HttpClientModule,
-    PagesModule
+    PagesModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
