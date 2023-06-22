@@ -8,7 +8,11 @@ import { GetDiasService } from 'src/app/services/getdias.service';
 })
 export class GrillaComponent implements OnInit {
   dias: any[] = [];
-
+  jornada = [ //Esto se saca de la base de datos 
+    {value: 'Matutina-0', viewValue: 'Matutina'},
+    {value: 'Vespertina-1', viewValue: 'Vespertina'},
+    {value: 'Nocturna-2', viewValue: 'Nocturna'}
+  ];
   constructor(private getdiasService: GetDiasService) {}
 
   ngOnInit(): void {

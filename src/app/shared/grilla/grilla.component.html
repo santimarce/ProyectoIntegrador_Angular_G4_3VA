@@ -1,14 +1,42 @@
+<div class="select-container">
+    <mat-form-field class="select-container">
+        <mat-select placeholder="Seleccione la Jornada">
+          <mat-option *ngFor="let value of jornada" [value]="value.value">
+            {{ value.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+</div>
+<div class="select-container">
+    <mat-form-field class="select-container">
+        <mat-select placeholder="Seleccione la Carrera">
+          <mat-option *ngFor="let value of jornada" [value]="value.value">
+            {{ value.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+</div>
+<div class="select-container">
+    <mat-form-field class="select-container">
+        <mat-select placeholder="Seleccione el Nivel">
+          <mat-option *ngFor="let value of jornada" [value]="value.value">
+            {{ value.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+</div>
 <div class="calendar-container">
 <table class="calendar-table">
     <thead>
         <tr>
             <th *ngFor="let dia of dias">{{ dia.nombre_dia}}</th>
-            <!-- Agrega más columnas según las propiedades de tu tabla "Dias" -->
         </tr>
     </thead>
     <tbody>
-
+        <tr *ngFor="let dia of dias">
+            <th *ngFor="let dia of dias"> <app-botongrilla></app-botongrilla> Agregar</th>
+        </tr>
     </tbody>
 </table>
-        <!-- Otro ejempo, podemos usar un servicio aquí -->
+        <!-- Otro ejemplo, podemos usar un servicio aquí -->
 </div>
