@@ -27,6 +27,8 @@ import { CrudalumnoComponent } from './crudalumno/crudalumno.component';
 import { BotongrillaComponent } from './botongrilla/botongrilla.component';
 import { CrudhorarioComponent } from './crudhorario/crudhorario.component';
 import { CuadroDialogComponent } from './crudhorario/cuadrodialogo.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -59,6 +61,8 @@ import { CuadroDialogComponent } from './crudhorario/cuadrodialogo.component';
     MatDialogModule,
     MatAutocompleteModule,
     MatFormFieldModule,
+    MatTableModule,
+    MatPaginatorModule,
     ReactiveFormsModule
   ],
   exports: [NavbarComponent,
