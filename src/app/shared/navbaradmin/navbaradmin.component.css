@@ -19,3 +19,11 @@
 .titulo {
     color: white;
 }
+.cuadrointerior{
+    display: content;
+}
+.titulointerior{
+    text-align: center;
+    position: relative;
+    display: block;
+}

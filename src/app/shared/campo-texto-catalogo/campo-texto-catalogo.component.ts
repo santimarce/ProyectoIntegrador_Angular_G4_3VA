@@ -10,7 +10,7 @@ import { map, shareReplay } from 'rxjs/operators';
 })
 export class CampoTextoCatalogoComponent {
  myControl: FormControl = new FormControl();
-
+  
   options = [
     'One',
     'Two',

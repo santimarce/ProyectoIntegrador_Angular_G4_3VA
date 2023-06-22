@@ -9,7 +9,11 @@ import { map, shareReplay } from 'rxjs/operators';
   styleUrls: ['./navbaradmin.component.css']
 })
 export class NavbaradminComponent {
-    title = 'Sistema de Gestión de Horarios ITS YAVIRAC';
+  title = 'Sistema de Gestión de Horarios ITS YAVIRAC';
+  condition: string = "default"; 
+  changeCondition(name:string) {
+    this.condition = name;
+  }
   private breakpointObserver = inject(BreakpointObserver);
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
