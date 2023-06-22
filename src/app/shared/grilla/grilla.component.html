@@ -1,8 +1,8 @@
 <div class="select-container">
     <mat-form-field class="select-container">
         <mat-select placeholder="Seleccione la Jornada">
-          <mat-option *ngFor="let value of jornada" [value]="value.value">
-            {{ value.viewValue }}
+          <mat-option *ngFor="let value of jornadas" [value]="value.nombre_jornada">
+            {{ value.nombre_jornada }}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -10,8 +10,8 @@
 <div class="select-container">
     <mat-form-field class="select-container">
         <mat-select placeholder="Seleccione la Carrera">
-          <mat-option *ngFor="let value of jornada" [value]="value.value">
-            {{ value.viewValue }}
+          <mat-option *ngFor="let value of carrera" [value]="value.nombre_carrera">
+            {{ value.nombre_carrera }}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -19,8 +19,8 @@
 <div class="select-container">
     <mat-form-field class="select-container">
         <mat-select placeholder="Seleccione el Nivel">
-          <mat-option *ngFor="let value of jornada" [value]="value.value">
-            {{ value.viewValue }}
+          <mat-option *ngFor="let value of nivel" [value]="value.nombre_nivel">
+            {{ value.nombre_nivel }}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -29,12 +29,12 @@
 <table class="calendar-table">
     <thead>
         <tr>
-            <th *ngFor="let dia of dias">{{ dia.nombre_dia}}</th>
+            <th *ngFor="let dia of dias">{{ dia.nombre_dia }}</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let dia of dias">
-            <th *ngFor="let dia of dias"> <app-botongrilla></app-botongrilla> Agregar</th>
+            <th *ngFor="let dia of dias"> <app-crudhorario></app-crudhorario> Agregar</th>
         </tr>
     </tbody>
 </table>

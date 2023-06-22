@@ -88,13 +88,12 @@
         <h1>    Creación de Horarios    </h1>
       </div>
     </div>
-<br>
     <div [ngSwitch]="condition">
       <div *ngSwitchCase="'case1'" class="cuadrointerior">
         <app-cruddocentes> </app-cruddocentes>
       </div>
       <div *ngSwitchCase="'case2'" class="cuadrointerior">
-        <h1>HOLA</h1>
+        <app-crudalumno></app-crudalumno>
       </div>
       <div *ngSwitchCase="'case3'" class="cuadrointerior">
         <app-grilla> </app-grilla>
