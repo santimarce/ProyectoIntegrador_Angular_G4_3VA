@@ -1,63 +1,85 @@
 <form class="example-form">
-    <mat-form-field  class="example-full-width" >
-        <input class="input1" type="text" placeholder="Cédula" id="cedula" aria-label="Number" matInput [formControl]="myControl"
-            [matAutocomplete]="auto">
-        <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                {{ option }}
-            </mat-option>
-        </mat-autocomplete>
-    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Cédula</mat-label>
+        <input matInput type="text" id="cedula_alumno">
+      </mat-form-field>
+      <br><br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Nombre Alumno</mat-label>
+        <input matInput type="text" id="nombre_alumno">
+      </mat-form-field>
+      <br><br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Apellido Alumno</mat-label>
+        <input matInput type="text" id="apellido_alumno">
+      </mat-form-field>
+      <br><br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Fecha de Nacimiento</mat-label>
+        <input matInput type="date" id="fechaNacimiento_alumno">
+      </mat-form-field>
+      <br><br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Contacto Alumno</mat-label>
+        <input matInput type="text" id="telefono_alumno">
+      </mat-form-field>
+      <br><br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Dirección de Domicilio</mat-label>
+        <input matInput type="text" id="direccion_alumno">
+      </mat-form-field>
+      <br><br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Correo Electrónico Alumno</mat-label>
+        <input matInput type="email" id="email_alumno">
+      </mat-form-field>
+      <br><br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Jornada</mat-label>
+        <mat-select>
+          <mat-option value="matutina">Matutina</mat-option>
+          <mat-option value="vespertina">Vespertina</mat-option>
+          <mat-option value="nocturna">Nocturna</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br><br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Nivel</mat-label>
+        <mat-select>
+          <mat-option value="primero">Primero</mat-option>
+          <mat-option value="segundo">Segundo</mat-option>
+          <mat-option value="tercero">Tercero</mat-option>
+          <mat-option value="cuarto">Cuarto</mat-option>
+          <mat-option value="quinto">Quinto</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br><br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Paralelo</mat-label>
+        <mat-select>
+          <mat-option value="a">A</mat-option>
+          <mat-option value="b">B</mat-option>
+          <mat-option value="c">C</mat-option>
+          <mat-option value="d">D</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br><br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Carrera</mat-label>
+        <mat-select>
+          <mat-option value="software">Desarrollo de Software</mat-option>
+          <mat-option value="modas">Diseño de Modas</mat-option>
+          <mat-option value="marketing">Marketing</mat-option>
+          <mat-option value="culinario">Arte Culinario Ecuatoriano</mat-option>
+          <mat-option value="incendios">Control de Incendios y Operaciónes de Rescate</mat-option>
+          <mat-option value="turismo">Guía Nacional de Turismo</mat-option>
+        </mat-select>
+      </mat-form-field>
     <br><br>
     <mat-form-field class="example-full-width">
-        <input type="text" placeholder="Nombre Alumno" id="nombre" aria-label="Number" matInput [formControl]="myControl"
-            [matAutocomplete]="auto">
-        <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                {{ option }}
-            </mat-option>
-        </mat-autocomplete>
-    </mat-form-field>
-    <br><br>
-    <mat-form-field class="example-full-width">
-        <input type="text" placeholder="Apellido Alumno" id="apellido" aria-label="Number" matInput [formControl]="myControl"
-            [matAutocomplete]="auto">
-        <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                {{ option }}
-            </mat-option>
-        </mat-autocomplete>
-    </mat-form-field>
-    <br><br>
-    <mat-form-field class="example-full-width">
-        <input type="date" placeholder="Fecha de nacimiento" id="nacimiento" aria-label="Number" matInput [formControl]="myControl"
-            [matAutocomplete]="auto">
-        <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                {{ option }}
-            </mat-option>
-        </mat-autocomplete>
-    </mat-form-field>
-    <br><br>
-    <mat-form-field class="example-full-width">
-        <input type="text" placeholder="Contacto Alumno" aria-label="Number" matInput [formControl]="myControl"
-            [matAutocomplete]="auto">
-        <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                {{ option }}
-            </mat-option>
-        </mat-autocomplete>
-    </mat-form-field>
-    <br><br>
-    <mat-form-field class="example-full-width">
-        <input type="text" placeholder="Dirección" aria-label="Number" matInput [formControl]="myControl"
-            [matAutocomplete]="auto">
-        <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                {{ option }}
-            </mat-option>
-        </mat-autocomplete>
-    </mat-form-field>
-    <br><br>
+        <mat-label>Contraseña Alumno</mat-label>
+        <input matInput type="password" id="contraseña_alumno">
+      </mat-form-field>
+      <br><br>
     <button mat-button style="background-color:#125496; color:white; margin: 2px 2px 15px 2px;">Ingresar Infomación</button>
   </form>

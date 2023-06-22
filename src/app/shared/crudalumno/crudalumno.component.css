@@ -10,7 +10,6 @@ h1{
     background-color: #ffffff;
     text-align: center;
     margin: auto;
-    /*border: 3px solid rgb(206, 145, 76);*/
   }
   
   .example-full-width {
@@ -20,8 +19,11 @@ h1{
     padding: auto;
   }
 
-  /*.input1{
-    background-color: aqua;
-  }*/
+
+  :host {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
   
