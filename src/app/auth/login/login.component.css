@@ -309,3 +309,18 @@
   mat-toolbar {
       background-color: rgb(82, 24, 189);
   } 
+
+
+  mat-card-title,
+  mat-card-content {
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
+  }
+
+ 
+  .button {
+    background:#1976d2;
+    display: flex;
+    justify-content: center;
+  }
