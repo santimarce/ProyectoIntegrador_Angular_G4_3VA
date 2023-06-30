@@ -14,7 +14,7 @@ h1{
   
   .example-full-width {
     width: 100%;
-    background-color: rgb(228, 142, 84);
+    background-color: #1976d2;
     border: 1px solid black;
     padding: auto;
   }
@@ -26,4 +26,8 @@ h1{
     align-items: flex-start;
   }
 
-  
+ .button_alumno{
+  background-color:#dc7633; 
+  color:white; 
+  margin: 2px 2px 15px 2px;
+ } 
