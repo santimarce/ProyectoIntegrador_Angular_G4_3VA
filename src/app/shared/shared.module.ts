@@ -29,6 +29,7 @@ import { CrudhorarioComponent } from './crudhorario/crudhorario.component';
 import { CuadroDialogComponent } from './crudhorario/cuadrodialogo.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { ModaldocenteComponent } from './modaldocente/modaldocente.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     CrudalumnoComponent,
     BotongrillaComponent,
     CrudhorarioComponent,
-    CuadroDialogComponent
+    CuadroDialogComponent,
+    ModaldocenteComponent
   ],
   imports: [
     CommonModule,

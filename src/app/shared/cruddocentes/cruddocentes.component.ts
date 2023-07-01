@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource} from '@angular/material/table';
-import {MatPaginator } from '@angular/material/paginator';
+import { MatPaginator } from '@angular/material/paginator';
 import { Teacher } from 'src/app/models/teachermodel';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { ModaldocenteComponent } from '../modaldocente/modaldocente.component';
 
 @Component({
   selector: 'app-cruddocentes',
@@ -10,6 +12,14 @@ import { Teacher } from 'src/app/models/teachermodel';
 })
 export class CruddocentesComponent {
 
+  constructor(private dialog: MatDialog) { }
+
+  openCrudDialog(): void {
+    this.dialog.open(ModaldocenteComponent, {
+      width: '400px',
+      data: {} // Puedes pasar datos al cuadro de diálogo si es necesario
+    });
+  }
   teacher: Teacher[] = [
     {id: 'DC-09123', nombre: 'Lorena', apellido: 'Chulde', contacto: '0996603406', email: 'lchulde@yavirac.edu.ec', contrasenia: '*****',idrama: 1, idfacultad: 1},
     {id: 'DC-09124', nombre: 'Luis', apellido: 'Chipuxi', contacto: '0998795145', email: 'Lchipuxi@yavirac.edu.ec', contrasenia: '*****',idrama: 1, idfacultad: 1},
