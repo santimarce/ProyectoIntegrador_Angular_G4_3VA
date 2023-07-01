@@ -13,7 +13,7 @@ export class GetCatalogosService {
   private apiUrljornada = 'http://localhost:3000/jornada'; 
   private apiUrlcarrera = 'http://localhost:3000/carrera'; 
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {  }
 
   getDias(): Observable<any> {
     return this.http.get<any>(this.apiUrldias);
