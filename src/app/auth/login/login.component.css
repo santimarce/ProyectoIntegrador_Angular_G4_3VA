@@ -320,7 +320,12 @@
 
  
   .button {
-    background:#1976d2;
+    background:#DC7633;
     display: flex;
     justify-content: center;
+  }
+
+  mat-card{
+    background-image: url(https://yavirac.edu.ec/img/despues-1.png);
+    font-family: Roboto, "Helvetica Neue", sans-serif;
   }
