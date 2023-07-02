@@ -6,11 +6,9 @@ import { AuthComponent } from './auth.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { SharedModule } from '../shared/shared.module';
-import { MatCardModule } from '@angular/material/card';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import { MatButtonModule } from '@angular/material/button';
+
 import { ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from 'src/material.module';
 
 
 @NgModule({
@@ -23,11 +21,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     AuthRoutingModule,
     SharedModule,
-    MatCardModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatButtonModule,
-    ReactiveFormsModule
+
+    ReactiveFormsModule,
+    MaterialModule
   ]
 })
 export class AuthModule { }
