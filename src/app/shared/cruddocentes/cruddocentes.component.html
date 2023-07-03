@@ -44,6 +44,18 @@
         <mat-cell *matCellDef="let teacher"> {{teacher.idfacultad}} </mat-cell>
       </ng-container>
 
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="rol">
+        <mat-header-cell *matHeaderCellDef> Rol </mat-header-cell>
+        <mat-cell *matCellDef="let teacher"> {{teacher.rol}} </mat-cell>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="estado">
+        <mat-header-cell *matHeaderCellDef> Estado </mat-header-cell>
+        <mat-cell *matCellDef="let teacher"> {{teacher.estado}} </mat-cell>
+      </ng-container>
+
       <!-- Añadir los botones  -->
       <ng-container matColumnDef="acciones">
         <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>

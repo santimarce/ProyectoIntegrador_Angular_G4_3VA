@@ -4,11 +4,11 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  selector: 'app-navbardocente',
+  templateUrl: './navbardocente.component.html',
+  styleUrls: ['./navbardocente.component.css']
 })
-export class NavbarComponent {
+export class NavbardocenteComponent {
   title = 'Sistema de Gestión de Horarios ITS YAVIRAC';
   condition: string = "default"; 
   changeCondition(name:string) {

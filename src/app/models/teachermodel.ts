@@ -7,4 +7,6 @@ export interface Teacher{
     contrasenia: string;
     idrama: number;
     idfacultad: number;
+    rol: number;
+    estado: number;
 }

@@ -30,6 +30,9 @@ import { CuadroDialogComponent } from './crudhorario/cuadrodialogo.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ModaldocenteComponent } from './modaldocente/modaldocente.component';
+import { NavbardocenteComponent } from './navbardocente/navbardocente.component';
+import { PagesModule } from '../pages/pages.module';
+import { CambiodocenteComponent } from './cambiodocente/cambiodocente.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,9 @@ import { ModaldocenteComponent } from './modaldocente/modaldocente.component';
     BotongrillaComponent,
     CrudhorarioComponent,
     CuadroDialogComponent,
-    ModaldocenteComponent
+    ModaldocenteComponent,
+    NavbardocenteComponent,
+    CambiodocenteComponent
   ],
   imports: [
     CommonModule,
@@ -65,7 +70,7 @@ import { ModaldocenteComponent } from './modaldocente/modaldocente.component';
     MatFormFieldModule,
     MatTableModule,
     MatPaginatorModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   exports: [NavbarComponent,
     SidebarComponent,
@@ -73,7 +78,8 @@ import { ModaldocenteComponent } from './modaldocente/modaldocente.component';
     GrillaComponent,
     CampoTextoCatalogoComponent,
     NavbaradminComponent,
-    CrudhorarioComponent
+    CrudhorarioComponent,
+    NavbardocenteComponent
   ]
 })
 export class SharedModule { }

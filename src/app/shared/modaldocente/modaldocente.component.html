@@ -1,18 +1,67 @@
-<h1 mat-dialog-title id="titulo"> Ingresar nuevo horario </h1>
+<h1 mat-dialog-title id="titulo"> Ingresar nuevo Docente </h1>
 <div mat-dialog-content id="container">
   <mat-form-field class="field">
-    <input matInput placeholder="Docente">
+    <input matInput placeholder="Cédula">
   </mat-form-field>
-<br>
+  <br>
   <mat-form-field class="field">
-    <input matInput placeholder="Asignatura">
+    <input matInput placeholder="Nombre">
   </mat-form-field>
-<br>
+  <br>
   <mat-form-field class="field">
-    <input matInput placeholder="Curso">
+    <input matInput placeholder="Apellido">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="field">
+    <input matInput placeholder="Contacto">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="field">
+    <input matInput placeholder="Email">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="field">
+    <input matInput placeholder="Contraseña">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="field">
+    <mat-label>Rama</mat-label>
+    <mat-select>
+      <mat-option value="matutina">Matutina</mat-option>
+      <mat-option value="vespertina">Vespertina</mat-option>
+      <mat-option value="nocturna">Nocturna</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="field">
+    <mat-label>Facultad</mat-label>
+    <mat-select>
+      <mat-option value="matutina">Matutina</mat-option>
+      <mat-option value="vespertina">Vespertina</mat-option>
+      <mat-option value="nocturna">Nocturna</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="field">
+    <mat-label>Estado</mat-label>
+    <mat-select>
+      <mat-option value="matutina">Matutina</mat-option>
+      <mat-option value="vespertina">Vespertina</mat-option>
+      <mat-option value="nocturna">Nocturna</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="field">
+    <mat-label>Rol</mat-label>
+    <mat-select>
+      <mat-option value="matutina">Matutina</mat-option>
+      <mat-option value="vespertina">Vespertina</mat-option>
+      <mat-option value="nocturna">Nocturna</mat-option>
+    </mat-select>
   </mat-form-field>
 </div>
+
 <div mat-dialog-actions id="botones">
   <button mat-button mat-dialog-close class="btn-cancel">Cancelar</button>
-  <button mat-raised-button color= "primary" class="btn-guardar">Guardar</button>
+  <button mat-raised-button color="primary" class="btn-guardar">Guardar</button>
 </div>

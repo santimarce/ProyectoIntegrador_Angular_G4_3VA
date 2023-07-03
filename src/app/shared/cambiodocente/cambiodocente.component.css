@@ -1,0 +1,34 @@
+h1{
+    text-align: center;
+    margin: auto;
+  }
+  
+  .example-form {
+      min-width: 150px;
+      max-width: 500px;
+      width: 100%;
+      background-color: #ffffff;
+      text-align: center;
+      margin: auto;
+    }
+    
+    .example-full-width {
+      width: 100%;
+      background-color: #1976d2;
+      border: 1px solid black;
+      padding: auto;
+    }
+  
+  
+    :host {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+   .button_alumno{
+    background-color:#dc7633; 
+    color:white; 
+    margin: 2px 2px 15px 2px;
+   } 
+  

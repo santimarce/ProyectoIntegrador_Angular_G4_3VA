@@ -13,6 +13,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 
+
 @NgModule({
   declarations: [
     PagesComponent,
@@ -30,6 +31,11 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatAutocompleteModule,
     MatInputModule,
     MatFormFieldModule
+  ],
+  exports: [
+    TeachersComponent,
+    StudentsComponent,
+    PagesComponent
   ]
 })
 export class PagesModule { }

@@ -329,3 +329,20 @@
     background-image: url(https://yavirac.edu.ec/img/despues-1.png);
     font-family: Roboto, "Helvetica Neue", sans-serif;
   }
+  mat-card {
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+  
+  mat-form-field {
+    width: 100%;
+  }
+
+  mat-raised-button{
+    background-color: #DC7633;
+  }
+
+  mat-card-title{
+    text-align: center;
+  }
