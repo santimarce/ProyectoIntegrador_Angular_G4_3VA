@@ -62,7 +62,7 @@
     <mat-card>
         <mat-card-title>LOG-IN</mat-card-title>
   <mat-card-content>
-    <form >
+    <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
       <p>
         <mat-form-field>
           <input type="text" matInput placeholder="Nombre" formControlName="username" style="font-family: Roboto, Helvetica Neue, sans-serif;">
@@ -80,7 +80,7 @@
       </p>
 
       <div class="button">
-        <button type="submit" mat-button>Enviar</button>
+        <button type="submit" mat-button (click)="onClick()">Enviar</button>
       </div>
 
     </form>
