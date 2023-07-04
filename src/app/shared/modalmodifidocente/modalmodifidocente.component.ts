@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, OnInit, ViewChild, ElementRef, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CrudDocenteService } from 'src/app/services/crud-docente.service';
@@ -8,16 +8,17 @@ import { GetCatalogosService } from 'src/app/services/getcatalogos.service';
 import { Rol, Rama, Facultad, Estado } from 'src/app/models/catalogmodel';
 
 @Component({
-  selector: 'app-modaldocente',
-  templateUrl: './modaldocente.component.html',
-  styleUrls: ['./modaldocente.component.css'],
+  selector: 'app-modalmodifidocente',
+  templateUrl: './modalmodifidocente.component.html',
+  styleUrls: ['./modalmodifidocente.component.css']
 })
-export class ModaldocenteComponent implements OnInit {
+export class ModalmodifidocenteComponent implements OnInit {
   constructor(
-    public dialogRef: MatDialogRef<ModaldocenteComponent>,
+    public dialogRef: MatDialogRef<ModalmodifidocenteComponent>,
     private docentesService: CrudDocenteService,
     private toastr: ToastrService,
-    private getCatalogos: GetCatalogosService
+    private getCatalogos: GetCatalogosService,
+    @Inject(MAT_DIALOG_DATA) public data: Teacher
   ) {}
   hide = true;
   docenteForm = new FormGroup({
@@ -82,26 +83,22 @@ export class ModaldocenteComponent implements OnInit {
     id_estado: 1,
     id_rol: 1,
   };
-
-  closeDialog(): void {
-    this.dialogRef.close();
-  }
   ngOnInit(): void {
-    this.docenteForm = new FormGroup({
-      cedula_docente: new FormControl('', Validators.required),
-      nombre_docente: new FormControl('', Validators.required),
-      apellido_docente: new FormControl('', Validators.required),
-      contacto_docente: new FormControl('', Validators.required),
-      email_docente: new FormControl('', [
-        Validators.required,
-        Validators.email,
-      ]),
-      contrasenia_docente: new FormControl('', Validators.required),
-      idrama_docente: new FormControl(),
-      idfacultad_docente: new FormControl(),
-      idestado_docente: new FormControl(),
-      idrol_docente: new FormControl(),
-    });
+    // this.docenteForm = new FormGroup({
+    //   cedula_docente: new FormControl('', Validators.required),
+    //   nombre_docente: new FormControl('', Validators.required),
+    //   apellido_docente: new FormControl('', Validators.required),
+    //   contacto_docente: new FormControl('', Validators.required),
+    //   email_docente: new FormControl('', [
+    //     Validators.required,
+    //     Validators.email,
+    //   ]),
+    //   contrasenia_docente: new FormControl('', Validators.required),
+    //   idrama_docente: new FormControl(),
+    //   idfacultad_docente: new FormControl(),
+    //   idestado_docente: new FormControl(),
+    //   idrol_docente: new FormControl(),
+    // });
 
     this.getCatalogos.getRama().subscribe(
       (data) => {
@@ -136,38 +133,10 @@ export class ModaldocenteComponent implements OnInit {
       }
     );
   }
-
-  get cedulaControl() {
-    return this.docenteForm.get('cedula_docente') as FormControl;
+  closeDialog(): void {
+    this.dialogRef.close();
   }
-  public agregarDocente() {
-    if (this.docenteForm.valid) {
-      this.docente.id_docente =
-        this.docenteForm.controls['cedula_docente'].value ?? '';
-      this.docente.nombres_docente =
-        this.docenteForm.controls['nombre_docente'].value ?? '';
-      this.docente.apellidos_docente =
-        this.docenteForm.controls['apellido_docente'].value ?? '';
-      this.docente.contacto_docente =
-        this.docenteForm.controls['contacto_docente'].value ?? '';
-      this.docente.email_docente =
-        this.docenteForm.controls['email_docente'].value ?? '';
-      this.docente.contrasenia_docente =
-        this.docenteForm.controls['contrasenia_docente'].value ?? '';
-      console.log(this.docente);
-      this.docentesService.crearDocente(this.docente).subscribe(
-        (response: string) => {
-          this.toastr.success('Docente agregado correctamente', 'Éxito');
-        },
-        (error) => {
-          this.toastr.error('Error al agregar el docente', 'Error');
-        }
-      );
-    } else {
-      this.toastr.warning(
-        'Por favor, complete todos los campos',
-        'Advertencia'
-      );
-    }
+  modificarDocente(){
+
   }
 }

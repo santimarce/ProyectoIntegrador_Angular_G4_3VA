@@ -12,6 +12,10 @@ export class GetCatalogosService {
   private apiUrlnivel = 'http://localhost:3000/nivel'; 
   private apiUrljornada = 'http://localhost:3000/jornada'; 
   private apiUrlcarrera = 'http://localhost:3000/carrera'; 
+  private apiUrlrol = 'http://localhost:3000/rol'; 
+  private apiUrlestado = 'http://localhost:3000/estado'; 
+  private apiUrlrama = 'http://localhost:3000/rama'; 
+  private apiUrlfacultad = 'http://localhost:3000/facultad'; 
 
   constructor(private http: HttpClient) {  }
 
@@ -29,5 +33,17 @@ export class GetCatalogosService {
   }
   getCarrera(): Observable<any> {
     return this.http.get<any>(this.apiUrlcarrera);
+  }
+  getRol(): Observable<any> {
+    return this.http.get<any>(this.apiUrlrol);
+  }
+  getRama(): Observable<any> {
+    return this.http.get<any>(this.apiUrlrama);
+  }
+  getFacultad(): Observable<any> {
+    return this.http.get<any>(this.apiUrlfacultad);
+  }
+  getEstado(): Observable<any> {
+    return this.http.get<any>(this.apiUrlestado);
   }
 }

@@ -1,5 +1,5 @@
-<h1 mat-dialog-title id="titulo">Ingresar nuevo Docente</h1>
-<form [formGroup]="docenteForm" (ngSubmit)="agregarDocente()">
+<h1 mat-dialog-title id="titulo">Editar Docente ID: {{docente.id_docente}}</h1>
+<form [formGroup]="docenteForm" (ngSubmit)="modificarDocente()">
   <div mat-dialog-content id="container">
     <mat-form-field class="field">
       <input matInput placeholder="Cédula" id='cedula_docente' [formControl]="docenteForm.controls['cedula_docente']" required/>

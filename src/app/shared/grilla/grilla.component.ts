@@ -11,7 +11,7 @@ export class GrillaComponent implements OnInit {
   jornadas: Jornada[] = [];
   nivel: Nivel[] = [];
   carrera: Carrera[] = [];
-  paralelo: Paralelo[] = [];
+  paralelo: Paralelo[] = [];     
   constructor(private getCatalogService: GetCatalogosService) {}
 
   ngOnInit(): void {

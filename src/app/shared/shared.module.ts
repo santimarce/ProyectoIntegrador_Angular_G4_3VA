@@ -33,6 +33,9 @@ import { ModaldocenteComponent } from './modaldocente/modaldocente.component';
 import { NavbardocenteComponent } from './navbardocente/navbardocente.component';
 import { PagesModule } from '../pages/pages.module';
 import { CambiodocenteComponent } from './cambiodocente/cambiodocente.component';
+import { ToastrModule } from 'ngx-toastr';
+import { ModalmodifidocenteComponent } from './modalmodifidocente/modalmodifidocente.component';
+
 
 @NgModule({
   declarations: [
@@ -50,7 +53,8 @@ import { CambiodocenteComponent } from './cambiodocente/cambiodocente.component'
     CuadroDialogComponent,
     ModaldocenteComponent,
     NavbardocenteComponent,
-    CambiodocenteComponent
+    CambiodocenteComponent,
+    ModalmodifidocenteComponent
   ],
   imports: [
     CommonModule,
@@ -71,6 +75,11 @@ import { CambiodocenteComponent } from './cambiodocente/cambiodocente.component'
     MatTableModule,
     MatPaginatorModule,
     ReactiveFormsModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right', // Configura la posición del toast
+      preventDuplicates: true, // Evita la duplicación de toasts
+      closeButton: true, // Muestra el botón de cierre en el toast
+    })
   ],
   exports: [NavbarComponent,
     SidebarComponent,

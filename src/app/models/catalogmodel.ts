@@ -30,3 +30,11 @@ export interface Rama{
     id_rama: number;
     nombre_rama: string;
 }
+export interface Rol{
+    id_rol: number;
+    nombre_rol: string;
+}
+export interface Estado{
+    id_estado: number;
+    nombre_estado: string;
+}
