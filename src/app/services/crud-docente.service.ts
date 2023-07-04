@@ -24,7 +24,7 @@ export class CrudDocenteService {
   }
 
   actualizarDocente(id: string, docente: any) {
-    return this.http.put(`${this.apiUrl}/docentes/${id}`, docente);
+    return this.http.put<string>(`${this.apiUrl}/docentes/${id}`, docente);
   }
 
   eliminarDocente(id: string): Observable<{ message: string }> {

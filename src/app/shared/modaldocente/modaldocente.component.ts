@@ -154,7 +154,6 @@ export class ModaldocenteComponent implements OnInit {
         this.docenteForm.controls['email_docente'].value ?? '';
       this.docente.contrasenia_docente =
         this.docenteForm.controls['contrasenia_docente'].value ?? '';
-      console.log(this.docente);
       this.docentesService.crearDocente(this.docente).subscribe(
         (response: string) => {
           this.toastr.success('Docente agregado correctamente', 'Éxito');

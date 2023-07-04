@@ -1,0 +1,44 @@
+#titulo {
+    text-align: center;
+    color: white ;
+    font-weight: bold;
+    background-color: var(--color-accent);
+}
+#container {
+    text-align: center;
+    align-items: center;    
+    padding: 5px;
+}
+.field {
+    width: 300px;
+    color: var(--color-accent);
+}
+.botones {
+    justify-content: center;
+    align-items: center;
+}
+.mat-mdc-dialog-actions {
+    justify-content: center;
+}
+.btn-cancel{
+    padding: 20px;
+    background-color: var(--color-accent);
+    color: white !important;
+    font-weight: bold !important;
+    font-size: small !important;
+}
+.btn-guardar{
+    padding: 20px;
+    background-color: var(--color-primary);
+    color: white;
+    font-weight: bold !important;
+    font-size: small !important;
+}
+.field mat-icon:not(.cdk-focused) {
+    display: none;
+  }
+.field mat-icon {
+    color: var(--primary);
+  }
+
+  

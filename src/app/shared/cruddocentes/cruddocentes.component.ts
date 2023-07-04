@@ -73,7 +73,7 @@ export class CruddocentesComponent implements OnInit {
   editarDocente(id:string, docente: Teacher) {
     const dialogRef = this.dialog.open(ModalmodifidocenteComponent, {
       width: '400px',
-      data: { teacher: this.teacher} // Puedes pasar datos al cuadro de diálogo si es necesario
+      data: { teacher: docente} // Puedes pasar datos al cuadro de diálogo si es necesario
     });
     dialogRef.afterClosed().subscribe(result => {
       // Aquí puedes manejar cualquier lógica después de cerrar el modal

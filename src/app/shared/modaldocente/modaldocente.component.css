@@ -34,3 +34,9 @@
     font-weight: bold !important;
     font-size: small !important;
 }
+.field mat-icon:not(.cdk-focused) {
+    display: none;
+  }
+.field mat-icon {
+    color: var(--primary);
+  }

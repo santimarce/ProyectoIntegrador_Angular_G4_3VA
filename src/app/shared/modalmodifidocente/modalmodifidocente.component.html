@@ -1,76 +1,140 @@
-<h1 mat-dialog-title id="titulo">Editar Docente ID: {{docente.id_docente}}</h1>
+<h1 mat-dialog-title id="titulo">
+  Editar Docente ID: {{ data.teacher.id_docente }}
+</h1>
 <form [formGroup]="docenteForm" (ngSubmit)="modificarDocente()">
   <div mat-dialog-content id="container">
     <mat-form-field class="field">
-      <input matInput placeholder="Cédula" id='cedula_docente' [formControl]="docenteForm.controls['cedula_docente']" required/>
-      <mat-error *ngIf="docenteForm.controls['cedula_docente'].invalid"> Debe llenar este campo
-    </mat-error>
+      <label for="nombre_docente">Nombres</label>
+      <input
+        matInput
+        [placeholder]="docente.nombres_docente"
+        id="nombre_docente"
+        [formControl]="docenteForm.controls['nombre_docente']"
+        value="docente.nombres_docente"
+        required
+      />
+      <mat-error *ngIf="docenteForm.controls['nombre_docente'].invalid">
+        Debe llenar este campo
+      </mat-error>
     </mat-form-field>
     <br />
     <mat-form-field class="field">
-      <input matInput placeholder="Nombre" id="nombre_docente" [formControl]="docenteForm.controls['nombre_docente']" required/>
-      <mat-error *ngIf="docenteForm.controls['nombre_docente'].invalid"> Debe llenar este campo
-    </mat-error>
+      <label for="apellido_docente">Apellidos</label>
+      <input
+        matInput
+        [placeholder]="docente.apellidos_docente"
+        id="apellido_docente"
+        [formControl]="docenteForm.controls['apellido_docente']"
+        value="docente.apellidos_docente"
+        required
+      />
+      <mat-error *ngIf="docenteForm.controls['apellido_docente'].invalid">
+        Debe llenar este campo
+      </mat-error>
     </mat-form-field>
     <br />
     <mat-form-field class="field">
-      <input matInput placeholder="Apellido" id="apellido_docente" [formControl]="docenteForm.controls['apellido_docente']" required/>
-      <mat-error *ngIf="docenteForm.controls['apellido_docente'].invalid"> Debe llenar este campo
-    </mat-error>
+      <label for="contacto_docente">Contacto</label>
+      <input
+        matInput
+        [placeholder]="docente.contacto_docente"
+        id="contacto_docente"
+        [formControl]="docenteForm.controls['contacto_docente']"
+        required
+      />
+      <mat-error *ngIf="docenteForm.controls['contacto_docente'].invalid">
+        Debe llenar este campo
+      </mat-error>
     </mat-form-field>
     <br />
     <mat-form-field class="field">
-      <input matInput placeholder="Contacto" id="contacto_docente" [formControl]="docenteForm.controls['contacto_docente']" required/>
-      <mat-error *ngIf="docenteForm.controls['contacto_docente'].invalid"> Debe llenar este campo
-    </mat-error>
+      <label for="email_docente">Email</label>
+      <input
+        matInput
+        [placeholder]="docente.email_docente"
+        id="email_docente"
+        [formControl]="docenteForm.controls['email_docente']"
+        required
+      />
+      <mat-error *ngIf="docenteForm.controls['email_docente'].invalid">
+        Debe llenar este campo
+      </mat-error>
     </mat-form-field>
     <br />
     <mat-form-field class="field">
-      <input matInput placeholder="Email" id="email_docente" [formControl]="docenteForm.controls['email_docente']" required/>
-      <mat-error *ngIf="docenteForm.controls['email_docente'].invalid"> Debe llenar este campo
-    </mat-error>
-    </mat-form-field>
-    <br />
-    <mat-form-field class="field">
-      <input matInput placeholder="Contraseña" id="contrasenia_docente" [formControl]="docenteForm.controls['contrasenia_docente']" required [type]="hide ? 'password' : 'text'"/>
-      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-      <mat-error *ngIf="docenteForm.controls['contrasenia_docente'].invalid"> Debe llenar este campo
-    </mat-error>
+      <label for="contrasenia_docente">Contraseña</label>
+      <input
+        matInput
+        [placeholder]="docente.contrasenia_docente"
+        id="contrasenia_docente"
+        [formControl]="docenteForm.controls['contrasenia_docente']"
+        required
+        [type]="hide ? 'password' : 'text'"
+      />
+      <mat-icon matSuffix (click)="hide = !hide">{{
+        hide ? "visibility" : "visibility_off"
+      }}</mat-icon>
+      <mat-error *ngIf="docenteForm.controls['contrasenia_docente'].invalid">
+        Debe llenar este campo
+      </mat-error>
     </mat-form-field>
     <br />
     <mat-form-field class="field">
       <mat-label>Rama</mat-label>
-      <mat-select id="idrama_docente" [formControl]="docenteForm.controls['idrama_docente']" #idramaSelect (selectionChange)="onRamaSelectionChange($event)">
+      <mat-select
+        id="idrama_docente"
+        [formControl]="docenteForm.controls['idrama_docente']"
+        #idramaSelect
+        (selectionChange)="onRamaSelectionChange($event)"
+      >
         <mat-option *ngFor="let value of rama" [value]="value.nombre_rama">
-            {{ value.nombre_rama }}
-          </mat-option>
+          {{ value.nombre_rama }}
+        </mat-option>
       </mat-select>
     </mat-form-field>
     <br />
     <mat-form-field class="field">
       <mat-label>Facultad</mat-label>
-      <mat-select id="idfacultad_docente" [formControl]="docenteForm.controls['idfacultad_docente']" #idfacultadSelect (selectionChange)="onFacultadSelectionChange($event)">
-        <mat-option *ngFor="let value of facultad" [value]="value.nombre_facultad">
-            {{ value.nombre_facultad }}
-          </mat-option>
+      <mat-select
+        id="idfacultad_docente"
+        [formControl]="docenteForm.controls['idfacultad_docente']"
+        #idfacultadSelect
+        (selectionChange)="onFacultadSelectionChange($event)"
+      >
+        <mat-option
+          *ngFor="let value of facultad"
+          [value]="value.nombre_facultad"
+        >
+          {{ value.nombre_facultad }}
+        </mat-option>
       </mat-select>
     </mat-form-field>
     <br />
     <mat-form-field class="field">
       <mat-label>Estado</mat-label>
-      <mat-select id="idestado_docente" [formControl]="docenteForm.controls['idestado_docente']" #idestadoSelect (selectionChange)="onEstadoSelectionChange($event)">
+      <mat-select
+        id="idestado_docente"
+        [formControl]="docenteForm.controls['idestado_docente']"
+        #idestadoSelect
+        (selectionChange)="onEstadoSelectionChange($event)"
+      >
         <mat-option *ngFor="let value of estado" [value]="value.nombre_estado">
-            {{ value.nombre_estado }}
-          </mat-option>
+          {{ value.nombre_estado }}
+        </mat-option>
       </mat-select>
     </mat-form-field>
     <br />
     <mat-form-field class="field">
       <mat-label>Rol</mat-label>
-      <mat-select id="idrol_docente" [formControl]="docenteForm.controls['idrol_docente']" #idrolSelect (selectionChange)="onRolSelectionChange($event)">
+      <mat-select
+        id="idrol_docente"
+        [formControl]="docenteForm.controls['idrol_docente']"
+        #idrolSelect
+        (selectionChange)="onRolSelectionChange($event)"
+      >
         <mat-option *ngFor="let value of rol" [value]="value.nombre_rol">
-            {{ value.nombre_rol }}
-          </mat-option>
+          {{ value.nombre_rol }}
+        </mat-option>
       </mat-select>
     </mat-form-field>
   </div>
