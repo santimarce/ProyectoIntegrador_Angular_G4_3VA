@@ -1,11 +1,12 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CrudDocenteService } from 'src/app/services/crud-docente.service';
 import { Teacher } from 'src/app/models/teachermodel';
 import { GetCatalogosService } from 'src/app/services/getcatalogos.service';
 import { Rol, Rama, Facultad, Estado } from 'src/app/models/catalogmodel';
+import { AvisomodalComponent } from '../avisomodal/avisomodal.component';
 
 @Component({
   selector: 'app-modaldocente',
@@ -17,7 +18,8 @@ export class ModaldocenteComponent implements OnInit {
     public dialogRef: MatDialogRef<ModaldocenteComponent>,
     private docentesService: CrudDocenteService,
     private toastr: ToastrService,
-    private getCatalogos: GetCatalogosService
+    private getCatalogos: GetCatalogosService,
+    private dialog: MatDialog
   ) {}
   hide = true;
   docenteForm = new FormGroup({
@@ -156,17 +158,27 @@ export class ModaldocenteComponent implements OnInit {
         this.docenteForm.controls['contrasenia_docente'].value ?? '';
       this.docentesService.crearDocente(this.docente).subscribe(
         (response: string) => {
+          this.openAviso('Docente agregado correctamente');
           this.toastr.success('Docente agregado correctamente', 'Éxito');
         },
         (error) => {
+          this.openAviso('Error al agregar el docente');
           this.toastr.error('Error al agregar el docente', 'Error');
         }
       );
     } else {
+      this.openAviso('Por favor, complete todos los campos');
       this.toastr.warning(
         'Por favor, complete todos los campos',
         'Advertencia'
       );
     }
+  }
+  openAviso(mensaje: string): void {
+    this.dialog.open(AvisomodalComponent, {
+      data: {
+        mensaje: mensaje
+      }
+    });
   }
 }

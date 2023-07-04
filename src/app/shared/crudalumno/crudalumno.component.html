@@ -1,85 +1,81 @@
-<form class="example-form">
+<form class="example-form" [formGroup]="alumnoForm" (ngSubmit)="crearAlumno()">
     <mat-form-field class="example-full-width">
         <mat-label>Cédula</mat-label>
-        <input matInput type="text" id="cedula_alumno">
+        <input matInput type="text" id="cedula_alumno" [formControl]="alumnoForm.controls['cedula_alumno']" required>
       </mat-form-field>
       <br><br>
       <mat-form-field class="example-full-width">
         <mat-label>Nombre Alumno</mat-label>
-        <input matInput type="text" id="nombre_alumno">
+        <input matInput type="text" id="nombre_alumno" [formControl]="alumnoForm.controls['nombre_alumno']" required>
       </mat-form-field>
       <br><br>
       <mat-form-field class="example-full-width">
         <mat-label>Apellido Alumno</mat-label>
-        <input matInput type="text" id="apellido_alumno">
+        <input matInput type="text" id="apellido_alumno" [formControl]="alumnoForm.controls['apellido_alumno']" required>
       </mat-form-field>
       <br><br>
       <mat-form-field class="example-full-width">
         <mat-label>Fecha de Nacimiento</mat-label>
-        <input matInput type="date" id="fechaNacimiento_alumno">
+        <input matInput type="date" id="fechaNacimiento_alumno" [formControl]="alumnoForm.controls['fechaNacimiento_alumno']" required>
       </mat-form-field>
       <br><br>
       <mat-form-field class="example-full-width">
         <mat-label>Contacto Alumno</mat-label>
-        <input matInput type="text" id="telefono_alumno">
+        <input matInput type="text" id="telefono_alumno" [formControl]="alumnoForm.controls['telefono_alumno']" required>
       </mat-form-field>
       <br><br>
       <mat-form-field class="example-full-width">
         <mat-label>Dirección de Domicilio</mat-label>
-        <input matInput type="text" id="direccion_alumno">
+        <input matInput type="text" id="direccion_alumno" [formControl]="alumnoForm.controls['direccion_alumno']" required>
       </mat-form-field>
       <br><br>
       <mat-form-field class="example-full-width">
         <mat-label>Correo Electrónico Alumno</mat-label>
-        <input matInput type="email" id="email_alumno">
+        <input matInput type="email" id="email_alumno" [formControl]="alumnoForm.controls['direccion_alumno']" required>
+      </mat-form-field>
+      <br><br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Contraseña</mat-label>
+        <input matInput type="password" id="contrasenia_alumno" [formControl]="alumnoForm.controls['contrasenia_alumno']" required>
       </mat-form-field>
       <br><br>
       <mat-form-field class="example-full-width">
         <mat-label>Jornada</mat-label>
-        <mat-select>
-          <mat-option value="matutina">Matutina</mat-option>
-          <mat-option value="vespertina">Vespertina</mat-option>
-          <mat-option value="nocturna">Nocturna</mat-option>
+        <mat-select id="id_jornada" [formControl]="alumnoForm.controls['id_jornada']" #idjornadaSelect (selectionChange)="onJornadaSelectionChange($event)">
+          <mat-option *ngFor="let value of jornada" [value]="value.nombre_jornada">
+              {{ value.nombre_jornada }}
+            </mat-option>
         </mat-select>
       </mat-form-field>
       <br><br>
       <mat-form-field class="example-full-width">
         <mat-label>Nivel</mat-label>
-        <mat-select>
-          <mat-option value="primero">Primero</mat-option>
-          <mat-option value="segundo">Segundo</mat-option>
-          <mat-option value="tercero">Tercero</mat-option>
-          <mat-option value="cuarto">Cuarto</mat-option>
-          <mat-option value="quinto">Quinto</mat-option>
+        <mat-select id="id_nivel" [formControl]="alumnoForm.controls['id_nivel']" #idNivelSelect (selectionChange)="onNivelSelectionChange($event)">
+          <mat-option *ngFor="let value of nivel" [value]="value.nombre_nivel">
+              {{ value.nombre_nivel }}
+            </mat-option>
         </mat-select>
       </mat-form-field>
       <br><br>
       <mat-form-field class="example-full-width">
         <mat-label>Paralelo</mat-label>
-        <mat-select>
-          <mat-option value="a">A</mat-option>
-          <mat-option value="b">B</mat-option>
-          <mat-option value="c">C</mat-option>
-          <mat-option value="d">D</mat-option>
+        <mat-select id="id_paralelo" [formControl]="alumnoForm.controls['id_nivel']" #idParaleloSelect (selectionChange)="onParaleloSelectionChange($event)">
+          <mat-option *ngFor="let value of paralelo" [value]="value.nombre_paralelo">
+              {{ value.nombre_paralelo }}
+            </mat-option>
         </mat-select>
       </mat-form-field>
       <br><br>
       <mat-form-field class="example-full-width">
         <mat-label>Carrera</mat-label>
-        <mat-select>
-          <mat-option value="software">Desarrollo de Software</mat-option>
-          <mat-option value="modas">Diseño de Modas</mat-option>
-          <mat-option value="marketing">Marketing</mat-option>
-          <mat-option value="culinario">Arte Culinario Ecuatoriano</mat-option>
-          <mat-option value="incendios">Control de Incendios y Operaciónes de Rescate</mat-option>
-          <mat-option value="turismo">Guía Nacional de Turismo</mat-option>
+        <mat-select id="id_carrera" [formControl]="alumnoForm.controls['id_carrera']" #idCarreraSelect (selectionChange)="onCarreraSelectionChange($event)">
+          <mat-option *ngFor="let value of carrera" [value]="value.nombre_carrera">
+              {{ value.nombre_carrera }}
+            </mat-option>
         </mat-select>
       </mat-form-field>
-    <br><br>
-    <mat-form-field class="example-full-width">
-        <mat-label>Contraseña Alumno</mat-label>
-        <input matInput type="password" id="contraseña_alumno">
-      </mat-form-field>
       <br><br>
-    <button class="button_alumno" mat-button onclick="addStudent()">Ingresar Infomación</button>
+      <button mat-raised-button color="primary" class="button_alumno" type="submit">
+        Guardar
+      </button>
   </form>

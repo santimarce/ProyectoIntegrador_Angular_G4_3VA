@@ -1,14 +1,14 @@
 export interface Student {
-    id: string;
-    nombre: string;
-    apellido: string;
-    fechanacimiento: Date;
-    contacto: string;
-    direccion: string;
-    email: string;
-    contraseña: string;
-    idjornada: number;
-    idnivel: number;
-    idparalelo: number;
-    idcarrera: number;
+    id_alumno: string;
+    nombres_alumno: string;
+    apellido_alumno: string;
+    fechanacimiento_alumno: Date;
+    contacto_alumno: string;
+    direccion_alumno: string;
+    email_alumno: string;
+    contrasenia_alumno: string;
+    id_jornada: number;
+    id_nivel: number;
+    id_paralelo: number;
+    id_carrera: number;
 }

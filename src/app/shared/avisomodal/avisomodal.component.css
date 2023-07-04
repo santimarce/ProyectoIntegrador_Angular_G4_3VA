@@ -1,0 +1,25 @@
+#titulo {
+    text-align: center;
+    color: white ;
+    font-weight: bold;
+    background-color: var(--color-accent);
+}
+#container {
+    text-align: center;
+    align-items: center;    
+    padding: 5px;
+}
+.botones {
+    justify-content: center;
+    align-items: center;
+}
+.mat-mdc-dialog-actions {
+    justify-content: center;
+}
+.btn-cancel{
+    padding: 20px;
+    background-color: var(--color-accent);
+    color: white !important;
+    font-weight: bold !important;
+    font-size: small !important;
+}

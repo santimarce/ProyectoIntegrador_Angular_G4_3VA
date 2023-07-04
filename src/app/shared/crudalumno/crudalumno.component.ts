@@ -1,38 +1,151 @@
-import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable, map, startWith } from 'rxjs';
 import { Student } from 'src/app/models/studentmodel';
+import { AvisomodalComponent } from '../avisomodal/avisomodal.component';
+import { MatDialog } from '@angular/material/dialog';
+import { Carrera, Jornada, Paralelo, Nivel } from '../../models/catalogmodel';
+import { GetCatalogosService } from 'src/app/services/getcatalogos.service';
 
 @Component({
   selector: 'app-crudalumno',
   templateUrl: './crudalumno.component.html',
-  styleUrls: ['./crudalumno.component.css']
+  styleUrls: ['./crudalumno.component.css'],
 })
 export class CrudalumnoComponent {
-  myControl: FormControl = new FormControl();
+  constructor(
+    private dialog: MatDialog,
+    private getCatalogos: GetCatalogosService
+  ) {}
+  alumnoForm = new FormGroup({
+    cedula_alumno: new FormControl('', Validators.required),
+    nombre_alumno: new FormControl('', Validators.required),
+    apellido_alumno: new FormControl('', Validators.required),
+    fechaNacimiento_alumno: new FormControl('', Validators.required),
+    direccion_alumno: new FormControl('', Validators.required),
+    telefono_alumno: new FormControl('', Validators.required),
+    email_alumno: new FormControl('', [Validators.required, Validators.email]),
+    contrasenia_alumno: new FormControl('', Validators.required),
+    id_jornada: new FormControl(),
+    id_nivel: new FormControl(),
+    id_paralelo: new FormControl(),
+    id_carrera: new FormControl(),
+  });
+  jornada: Jornada[] = [];
+  nivel: Nivel[] = [];
+  paralelo: Paralelo[] = [];
+  carrera: Carrera[] = [];
+  alumnos: Student[] = [];
+  alumno: Student = {
+    id_alumno: '',
+    nombres_alumno: '',
+    apellido_alumno: '',
+    fechanacimiento_alumno: new Date(0),
+    contacto_alumno: '',
+    direccion_alumno: '',
+    email_alumno: '',
+    contrasenia_alumno: '',
+    id_jornada: 0,
+    id_nivel: 0,
+    id_paralelo: 0,
+    id_carrera: 0,
+  };
 
-  options = [
-    'One',
-    'Two',
-    'Three',
-    'Four'
-  ];
+  @ViewChild('idjornadaSelect') idjornadaSelect!: any;
+  @ViewChild('idNivelSelect') idNivelSelect!: any;
+  @ViewChild('idParaleloSelect') idParaleloSelect!: any;
+  @ViewChild('idCarreraSelect') idCarreraSelect!: any;
 
-  //lastName
-
-  filteredOptions: Observable<string[]> = new Observable<string[]>();
-
-  ngOnInit() {
-    this.filteredOptions = this.myControl.valueChanges
-      .pipe(
-        startWith(''),
-        map(val => this.filter(val))
-      );
+  onJornadaSelectionChange(event: any): void {
+    const selectedJornada = this.jornada.find(
+      (jornada) => jornada.nombre_jornada === event.value
+    );
+    if (selectedJornada) {
+      this.alumno.id_jornada = selectedJornada.id_jornada;
+    }
   }
 
-  filter(val: string): string[] {
-    return this.options.filter(option =>
-      option.toLowerCase().indexOf(val.toLowerCase()) === 0);
+  onNivelSelectionChange(event: any): void {
+    const selectedNivel = this.nivel.find(
+      (nivel) => nivel.nombre_nivel === event.value
+    );
+    if (selectedNivel) {
+      this.alumno.id_nivel = selectedNivel.id_nivel;
+    }
+  }
+
+  onParaleloSelectionChange(event: any): void {
+    const selectedParalelo = this.paralelo.find(
+      (paralelo) => paralelo.nombre_paralelo === event.value
+    );
+    if (selectedParalelo) {
+      this.alumno.id_paralelo = selectedParalelo.id_paralelo;
+    }
+  }
+
+  onCarreraSelectionChange(event: any): void {
+    const selectedCarrera = this.carrera.find(
+      (carrera) => carrera.nombre_carrera === event.value
+    );
+    if (selectedCarrera) {
+      this.alumno.id_carrera = selectedCarrera.id_carrera;
+    }
+  }
+
+  ngOnInit() {
+    this.getCatalogos.getJornada().subscribe(
+      (data) => {
+        this.jornada = data;
+      },
+      (error) => {
+        console.error(
+          'Error al obtener los datos de la tabla "Jornada"',
+          error
+        );
+      }
+    );
+    this.getCatalogos.getNivel().subscribe(
+      (data) => {
+        this.nivel = data;
+      },
+      (error) => {
+        console.error('Error al obtener los datos de la tabla "Nivel"', error);
+      }
+    );
+    this.getCatalogos.getParalelo().subscribe(
+      (data) => {
+        this.paralelo = data;
+      },
+      (error) => {
+        console.error(
+          'Error al obtener los datos de la tabla "Paralelo"',
+          error
+        );
+      }
+    );
+    this.getCatalogos.getCarrera().subscribe(
+      (data) => {
+        this.carrera = data;
+      },
+      (error) => {
+        console.error(
+          'Error al obtener los datos de la tabla "Carrera"',
+          error
+        );
+      }
+    );
+  }
+
+  crearAlumno() {
+    
+  }
+
+  openAviso(mensaje: string): void {
+    this.dialog.open(AvisomodalComponent, {
+      data: {
+        mensaje: mensaje,
+      },
+    });
   }
 }
 /*
@@ -52,22 +165,4 @@ function addStudent(): void{
     idcarrera: parseInt (readFromHtml("telefono_alumno")),
   } 
 }
-
-
-id: string;
-    nombre: string;
-    apellido: string;
-    fechanacimiento: Date;
-    contacto: string;
-    direccion: string;
-    email: string;
-    contraseña: string;
-    idjornada: number;
-    idnivel: number;
-    idparalelo: number;
-    idcarrera: number;
-     
-
-    function readFromHtml(id: string):string {
-      return (<HTMLInputElement> document.getElementById(id)).value;
-  }*/
+*/

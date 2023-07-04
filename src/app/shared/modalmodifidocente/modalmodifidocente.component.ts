@@ -1,11 +1,12 @@
 import {  Component,  OnInit,  ViewChild, Inject} from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CrudDocenteService } from 'src/app/services/crud-docente.service';
 import { Teacher, TeacherModificar } from 'src/app/models/teachermodel';
 import { GetCatalogosService } from 'src/app/services/getcatalogos.service';
 import { Rol, Rama, Facultad, Estado } from 'src/app/models/catalogmodel';
+import { AvisomodalComponent } from '../avisomodal/avisomodal.component';
 
 @Component({
   selector: 'app-modalmodifidocente',
@@ -18,7 +19,8 @@ export class ModalmodifidocenteComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private docentesService: CrudDocenteService,
     private toastr: ToastrService,
-    private getCatalogos: GetCatalogosService
+    private getCatalogos: GetCatalogosService,
+    private dialog: MatDialog
   ) {}
   hide = true;
   docenteForm = new FormGroup({
@@ -137,15 +139,30 @@ export class ModalmodifidocenteComponent implements OnInit {
     this.teacherchange.contacto_docente = this.docenteForm.controls['contacto_docente'].value ?? '';
     this.teacherchange.email_docente = this.docenteForm.controls['email_docente'].value ?? '';
     this.teacherchange.contrasenia_docente = this.docenteForm.controls['contrasenia_docente'].value ?? '';
-    console.log(this.teacherchange);
     this.docentesService.actualizarDocente(this.docente.id_docente, this.teacherchange).subscribe(
-      (response: string) => {
-        this.toastr.success('Docente agregado correctamente'+response, 'Éxito');
+      (message) => {
+        console.log(message);
+        this.openAviso(' Docente modificado correctamente ');
+        this.toastr.success('Docente modificado correctamente', 'Éxito');
       },
       (error) => {
-        this.toastr.error('Error al agregar el docente', 'Error');
+        if (error.status === 200) {
+          console.log(error);
+          this.openAviso(' Docente modificado correctamente ');
+          this.toastr.success('Docente modificado correctamente', 'Éxito');
+        } else {
+          console.log(error);
+          this.openAviso('Error al modificar docente');
+          this.toastr.error('Error al modificar docente', 'Error');
+        }
       }
     );
-
  }
+ openAviso(mensaje: string): void {
+  this.dialog.open(AvisomodalComponent, {
+    data: {
+      mensaje: mensaje
+    }
+  });
+}
 }

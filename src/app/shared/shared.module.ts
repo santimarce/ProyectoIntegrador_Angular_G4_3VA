@@ -35,6 +35,7 @@ import { PagesModule } from '../pages/pages.module';
 import { CambiodocenteComponent } from './cambiodocente/cambiodocente.component';
 import { ToastrModule } from 'ngx-toastr';
 import { ModalmodifidocenteComponent } from './modalmodifidocente/modalmodifidocente.component';
+import { AvisomodalComponent } from './avisomodal/avisomodal.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { ModalmodifidocenteComponent } from './modalmodifidocente/modalmodifidoc
     ModaldocenteComponent,
     NavbardocenteComponent,
     CambiodocenteComponent,
-    ModalmodifidocenteComponent
+    ModalmodifidocenteComponent,
+    AvisomodalComponent
   ],
   imports: [
     CommonModule,
