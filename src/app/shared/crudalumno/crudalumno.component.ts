@@ -1,11 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable, map, startWith } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 import { Student } from 'src/app/models/studentmodel';
 import { AvisomodalComponent } from '../avisomodal/avisomodal.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Carrera, Jornada, Paralelo, Nivel } from '../../models/catalogmodel';
 import { GetCatalogosService } from 'src/app/services/getcatalogos.service';
+import { CrudAlumnoService } from 'src/app/services/crud-alumno.service';
 
 @Component({
   selector: 'app-crudalumno',
@@ -15,7 +17,9 @@ import { GetCatalogosService } from 'src/app/services/getcatalogos.service';
 export class CrudalumnoComponent {
   constructor(
     private dialog: MatDialog,
-    private getCatalogos: GetCatalogosService
+    private getCatalogos: GetCatalogosService,
+    private crudAlumno: CrudAlumnoService,
+    private toastr: ToastrService,
   ) {}
   alumnoForm = new FormGroup({
     cedula_alumno: new FormControl('', Validators.required),
@@ -92,6 +96,10 @@ export class CrudalumnoComponent {
     }
   }
 
+  onFechaNacimientoChange(fecha: string) {
+    this.alumno.fechanacimiento_alumno = new Date(fecha);
+  }
+
   ngOnInit() {
     this.getCatalogos.getJornada().subscribe(
       (data) => {
@@ -136,8 +144,38 @@ export class CrudalumnoComponent {
     );
   }
 
-  crearAlumno() {
-    
+  public crearAlumno() {
+    if(this.alumnoForm.valid){
+      this.alumno.id_alumno =
+      this.alumnoForm.controls['cedula_alumno'].value ?? '';
+    this.alumno.nombres_alumno =
+      this.alumnoForm.controls['nombre_alumno'].value ?? '';
+    this.alumno.apellido_alumno =
+      this.alumnoForm.controls['apellido_alumno'].value ?? '';
+      const fechaNacimiento = this.alumnoForm.controls['fechaNacimiento_alumno'].value;
+this.alumno.fechanacimiento_alumno = new Date(fechaNacimiento);
+    this.alumno.contacto_alumno =
+      this.alumnoForm.controls['telefono_alumno'].value ?? '';
+    this.alumno.direccion_alumno =
+    this.alumnoForm.controls['direccion_alumno'].value ?? '';
+    this.alumno.email_alumno =
+      this.alumnoForm.controls['email_alumno'].value ?? '';
+    this.alumno.contrasenia_alumno =
+      this.alumnoForm.controls['contrasenia_alumno'].value ?? '';
+    this.crudAlumno.crearAlumno(this.alumno).subscribe(
+      (response: string) => {
+        this.openAviso('Alumno agregado correctamente');
+        this.toastr.success('Alumno agregado correctamente', 'Éxito');
+      },
+      (error) => {
+        this.openAviso('Error al agregar el alumno');
+        this.toastr.error('Error al agregar el alumno', 'Error');
+      }
+    );
+    }
+    else{
+    this.openAviso('Por favor, complete todos los campos');
+    }
   }
 
   openAviso(mensaje: string): void {
@@ -148,6 +186,12 @@ export class CrudalumnoComponent {
     });
   }
 }
+
+
+
+
+
+
 /*
 function addStudent(): void{
   let currentStudent:Student = {
