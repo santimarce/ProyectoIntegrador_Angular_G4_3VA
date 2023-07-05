@@ -1,6 +1,6 @@
 <div class="select-container">
     <mat-form-field class="select-container">
-        <mat-select placeholder="Seleccione la Jornada">
+        <mat-select placeholder="Seleccione la Jornada" #idjornadaSelect (selectionChange)="onJornadaSelectionChange($event)">
           <mat-option *ngFor="let value of jornadas" [value]="value.nombre_jornada">
             {{ value.nombre_jornada }}
           </mat-option>
@@ -8,9 +8,9 @@
       </mat-form-field>
 </div>
 <div class="select-container">
-    <mat-form-field class="select-container">
+    <mat-form-field class="select-container" #idCarreraSelect (selectionChange)="onCarreraSelectionChange($event)">
         <mat-select placeholder="Seleccione la Carrera">
-          <mat-option *ngFor="let value of carrera" [value]="value.nombre_carrera">
+          <mat-option *ngFor="let value of carreras" [value]="value.nombre_carrera">
             {{ value.nombre_carrera }}
           </mat-option>
         </mat-select>
@@ -18,8 +18,8 @@
 </div>
 <div class="select-container">
     <mat-form-field class="select-container">
-        <mat-select placeholder="Seleccione el Nivel">
-          <mat-option *ngFor="let value of nivel" [value]="value.nombre_nivel">
+        <mat-select placeholder="Seleccione el Nivel" #idNivelSelect (selectionChange)="onNivelSelectionChange($event)">
+          <mat-option *ngFor="let value of niveles" [value]="value.nombre_nivel">
             {{ value.nombre_nivel }}
           </mat-option>
         </mat-select>
@@ -34,10 +34,12 @@
         </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let value of fila">
-        <th>{{ value }}</th> <!-- Datos insertados manualmente en la primera columna -->
-        <td *ngFor="let dia of dias"> <app-crudhorario></app-crudhorario> Agregar</td> <!-- Celdas de la tabla -->
-    </tr>
+      <tr *ngFor="let value of (jornada.nombre_jornada === 'Matutina' ? maniana : (jornada.nombre_jornada === 'Vespertina' ? tarde : noche)) ; let fila = index">
+        <th>{{ value }}</th> <!-- Datos de la primera columna -->
+        <td *ngFor="let dia of dias; let columna = index">
+          <app-crudhorario [fila]="fila" [columna]="columna" (celdaSeleccionada)="abrirModal($event)"></app-crudhorario> Agregar <!-- Celdas de la tabla -->
+        </td>
+      </tr>
     </tbody>
 </table>
         <!-- Otro ejemplo, podemos usar un servicio aquí -->

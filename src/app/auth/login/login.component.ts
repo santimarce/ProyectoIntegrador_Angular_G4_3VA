@@ -9,7 +9,7 @@ import { UserService } from '../auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  title = 'Sistema de Gestión de horarios ITS YAVIRAC';
+  title = 'Módulo de Gestión de horarios ITS YAVIRAC';
   opened = false;
   formLogin: FormGroup;
 

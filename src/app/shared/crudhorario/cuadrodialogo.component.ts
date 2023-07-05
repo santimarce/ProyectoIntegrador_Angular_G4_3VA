@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { CrudDocenteService } from 'src/app/services/crud-docente.service';
 
 @Component({
   selector: 'app-cuadro-dialogo',

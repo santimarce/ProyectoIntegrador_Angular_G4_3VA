@@ -16,6 +16,7 @@ export class GetCatalogosService {
   private apiUrlestado = 'http://localhost:3000/estado'; 
   private apiUrlrama = 'http://localhost:3000/rama'; 
   private apiUrlfacultad = 'http://localhost:3000/facultad'; 
+  private apiUrlasignatura = 'http://localhost:3000/asignatura';
 
   constructor(private http: HttpClient) {  }
 
@@ -45,5 +46,8 @@ export class GetCatalogosService {
   }
   getEstado(): Observable<any> {
     return this.http.get<any>(this.apiUrlestado);
+  }
+  getAsignatura(): Observable<any> {
+    return this.http.get<any>(this.apiUrlasignatura);
   }
 }

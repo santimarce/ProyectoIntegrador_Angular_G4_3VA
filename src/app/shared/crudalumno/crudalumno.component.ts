@@ -168,15 +168,12 @@ export class CrudalumnoComponent {
       this.crudAlumno.crearAlumno(this.alumno).subscribe(
         (response: string) => {
           this.openAviso('Alumno agregado correctamente');
-          this.toastr.success('Alumno agregado correctamente', 'Éxito');
         },
         (error) => {
           this.openAviso('Error al agregar el alumno');
-          this.toastr.error('Error al agregar el alumno', 'Error');
         }
       );
     } else {
-      console.log(this.alumno);
       this.openAviso('Por favor, complete todos los campos');
     }
   }
@@ -189,22 +186,3 @@ export class CrudalumnoComponent {
     });
   }
 }
-
-/*
-function addStudent(): void{
-  let currentStudent:Student = {
-    id: readFromHtml("cedula_alumno"),
-    nombre: readFromHtml("nombre_alumno"),
-    apellido: readFromHtml("apellido_alumno"),
-    fechanacimiento: undefined,
-    contacto: readFromHtml("telefono_alumno"),
-    direccion: readFromHtml("direccion_alumno"),
-    email: readFromHtml("email_alumno"),
-    contraseña: readFromHtml("contraseña_alumno"),
-    idjornada: parseInt (readFromHtml("telefono_alumno")),
-    idnivel: parseInt (readFromHtml("telefono_alumno")),
-    idparalelo: parseInt (readFromHtml("telefono_alumno")),
-    idcarrera: parseInt (readFromHtml("telefono_alumno")),
-  } 
-}
-*/
