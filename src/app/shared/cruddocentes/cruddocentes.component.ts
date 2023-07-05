@@ -86,6 +86,7 @@ export class CruddocentesComponent implements OnInit {
       (response: { message: string }) => {
         this.teacher = this.teacher.filter(teacher => teacher.id_docente != id);
         console.log(response.message);
+        this.leerDocentes();
       },
       (error) => {
         console.log('Error al eliminar el docente:', error);

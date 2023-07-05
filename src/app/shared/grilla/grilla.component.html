@@ -29,13 +29,15 @@
 <table class="calendar-table">
     <thead>
         <tr>
+          <th> Hora </th>
             <th *ngFor="let dia of dias">{{ dia.nombre_dia }}</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let dia of dias">
-            <th *ngFor="let dia of dias"> <app-crudhorario></app-crudhorario> Agregar</th>
-        </tr>
+      <tr *ngFor="let value of fila">
+        <th>{{ value }}</th> <!-- Datos insertados manualmente en la primera columna -->
+        <td *ngFor="let dia of dias"> <app-crudhorario></app-crudhorario> Agregar</td> <!-- Celdas de la tabla -->
+    </tr>
     </tbody>
 </table>
         <!-- Otro ejemplo, podemos usar un servicio aquí -->
