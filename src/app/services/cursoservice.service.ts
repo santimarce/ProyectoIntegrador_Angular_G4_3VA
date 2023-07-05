@@ -10,6 +10,7 @@ export class CursoserviceService {
   private apiUrl = 'http://localhost:3000';
 
   constructor(private http: HttpClient) {}
+  
   getCursos(): Observable<Curso[]> {
     return this.http.get<Curso[]>(`${this.apiUrl}/cursos`);
   }

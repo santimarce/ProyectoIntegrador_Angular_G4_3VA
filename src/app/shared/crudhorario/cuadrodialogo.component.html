@@ -1,18 +1,35 @@
 <h1 mat-dialog-title id="titulo"> Ingresar nuevo horario </h1>
+<form class="example-form" [formGroup]="horarioForm" (ngSubmit)="closeDialog()">
 <div mat-dialog-content id="container">
   <mat-form-field class="field">
-    <input matInput placeholder="Docente">
+    <input type="text" placeholder="Docente" aria-label="Number" id="Docente" matInput [formControl]="horarioForm.controls['Docente']" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredDocente | async" [value]="option.id_docente">
+        {{ option.nombres_docente }}
+      </mat-option>
+    </mat-autocomplete>
   </mat-form-field>
-<br>
-  <mat-form-field class="field">
-    <input matInput placeholder="Asignatura">
-  </mat-form-field>
-<br>
-  <mat-form-field class="field">
-    <input matInput placeholder="Curso">
-  </mat-form-field>
+
+<mat-form-field class="field">
+      <input type="text" placeholder="Asignatura" aria-label="Number" id="Asignatura" matInput [formControl]="horarioForm.controls['Asignatura']" [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredAsignatura | async" [value]="option.id_asignatura">
+          {{ option.nombre_asignatura }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-form-field class="field">
+      <input type="text" placeholder="Curso" aria-label="Number" id="Curso" matInput [formControl]="horarioForm.controls['Curso']" [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredCurso | async" [value]="option.id_curso">
+          {{ option.nombre_curso }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
 </div>
 <div mat-dialog-actions id="botones">
   <button mat-button mat-dialog-close class="btn-cancel">Cancelar</button>
   <button mat-raised-button color= "primary" class="btn-guardar">Guardar</button>
 </div>
+</form>
