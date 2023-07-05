@@ -19,7 +19,7 @@ export class CrudalumnoComponent {
     private dialog: MatDialog,
     private getCatalogos: GetCatalogosService,
     private crudAlumno: CrudAlumnoService,
-    private toastr: ToastrService,
+    private toastr: ToastrService
   ) {}
   alumnoForm = new FormGroup({
     cedula_alumno: new FormControl('', Validators.required),
@@ -43,8 +43,8 @@ export class CrudalumnoComponent {
   alumno: Student = {
     id_alumno: '',
     nombres_alumno: '',
-    apellido_alumno: '',
-    fechanacimiento_alumno: new Date(0),
+    apellidos_alumno: '',
+    fechanacimiento_alumno: null,
     contacto_alumno: '',
     direccion_alumno: '',
     email_alumno: '',
@@ -96,8 +96,12 @@ export class CrudalumnoComponent {
     }
   }
 
-  onFechaNacimientoChange(fecha: string) {
-    this.alumno.fechanacimiento_alumno = new Date(fecha);
+  onFechaNacimientoChange(fechaNacimiento: any) {
+    if (!fechaNacimiento.value) {
+      this.alumno.fechanacimiento_alumno = new Date();
+    } else {
+      this.alumno.fechanacimiento_alumno = new Date(fechaNacimiento.value);
+    }
   }
 
   ngOnInit() {
@@ -145,36 +149,35 @@ export class CrudalumnoComponent {
   }
 
   public crearAlumno() {
-    if(this.alumnoForm.valid){
+    if (this.alumnoForm.valid) {
       this.alumno.id_alumno =
-      this.alumnoForm.controls['cedula_alumno'].value ?? '';
-    this.alumno.nombres_alumno =
-      this.alumnoForm.controls['nombre_alumno'].value ?? '';
-    this.alumno.apellido_alumno =
-      this.alumnoForm.controls['apellido_alumno'].value ?? '';
-      const fechaNacimiento = this.alumnoForm.controls['fechaNacimiento_alumno'].value;
-this.alumno.fechanacimiento_alumno = new Date(fechaNacimiento);
-    this.alumno.contacto_alumno =
-      this.alumnoForm.controls['telefono_alumno'].value ?? '';
-    this.alumno.direccion_alumno =
-    this.alumnoForm.controls['direccion_alumno'].value ?? '';
-    this.alumno.email_alumno =
-      this.alumnoForm.controls['email_alumno'].value ?? '';
-    this.alumno.contrasenia_alumno =
-      this.alumnoForm.controls['contrasenia_alumno'].value ?? '';
-    this.crudAlumno.crearAlumno(this.alumno).subscribe(
-      (response: string) => {
-        this.openAviso('Alumno agregado correctamente');
-        this.toastr.success('Alumno agregado correctamente', 'Éxito');
-      },
-      (error) => {
-        this.openAviso('Error al agregar el alumno');
-        this.toastr.error('Error al agregar el alumno', 'Error');
-      }
-    );
-    }
-    else{
-    this.openAviso('Por favor, complete todos los campos');
+        this.alumnoForm.controls['cedula_alumno'].value ?? '';
+      this.alumno.nombres_alumno =
+        this.alumnoForm.controls['nombre_alumno'].value ?? '';
+      this.alumno.apellidos_alumno =
+        this.alumnoForm.controls['apellido_alumno'].value ?? '';
+      this.alumno.contacto_alumno =
+        this.alumnoForm.controls['telefono_alumno'].value ?? '';
+      this.alumno.direccion_alumno =
+        this.alumnoForm.controls['direccion_alumno'].value ?? '';
+      this.alumno.email_alumno =
+        this.alumnoForm.controls['email_alumno'].value ?? '';
+      this.alumno.contrasenia_alumno =
+        this.alumnoForm.controls['contrasenia_alumno'].value ?? '';
+        console.log(this.alumno);
+      this.crudAlumno.crearAlumno(this.alumno).subscribe(
+        (response: string) => {
+          this.openAviso('Alumno agregado correctamente');
+          this.toastr.success('Alumno agregado correctamente', 'Éxito');
+        },
+        (error) => {
+          this.openAviso('Error al agregar el alumno');
+          this.toastr.error('Error al agregar el alumno', 'Error');
+        }
+      );
+    } else {
+      console.log(this.alumno);
+      this.openAviso('Por favor, complete todos los campos');
     }
   }
 
@@ -186,11 +189,6 @@ this.alumno.fechanacimiento_alumno = new Date(fechaNacimiento);
     });
   }
 }
-
-
-
-
-
 
 /*
 function addStudent(): void{

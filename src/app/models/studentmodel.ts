@@ -1,8 +1,8 @@
 export interface Student {
     id_alumno: string;
     nombres_alumno: string;
-    apellido_alumno: string;
-    fechanacimiento_alumno: Date;
+    apellidos_alumno: string;
+    fechanacimiento_alumno: Date | null;
     contacto_alumno: string;
     direccion_alumno: string;
     email_alumno: string;
