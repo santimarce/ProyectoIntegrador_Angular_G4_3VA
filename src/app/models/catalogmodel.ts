@@ -2,10 +2,12 @@ export interface Dias{
     id_dia: number;
     nombre_dia: string;
 }
+
 export interface Jornada{
     id_jornada: number;
     nombre_jornada: string;
 }
+
 export interface Nivel{
     id_nivel: number;
     nombre_nivel: string;

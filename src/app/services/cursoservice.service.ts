@@ -7,16 +7,16 @@ import { Curso } from '../models/cursosmodel';
   providedIn: 'root'
 })
 export class CursoserviceService {
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl = 'http://localhost:3000/course';
 
   constructor(private http: HttpClient) {}
   
   getCursos(): Observable<Curso[]> {
-    return this.http.get<Curso[]>(`${this.apiUrl}/cursos`);
+    return this.http.get<Curso[]>(`${this.apiUrl}`);
   }
 
   getCurso(id: string): Observable<any>  {
-    return this.http.get<any>(`${this.apiUrl}/cursos/${id}`);
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
 
 }

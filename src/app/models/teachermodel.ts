@@ -10,5 +10,6 @@ export interface Teacher {
   id_estado: number;
   id_rol: number;
 }
+
 export interface TeacherModificar extends Omit<Teacher, 'id_docente'>{
 }

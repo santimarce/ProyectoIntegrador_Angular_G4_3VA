@@ -7,18 +7,18 @@ import { Observable } from 'rxjs';
 })
 export class GetCatalogosService {
 
-  private apiUrldias = 'http://localhost:3000/dias';
-  private apiUrlparalelo = 'http://localhost:3000/paralelo'; 
-  private apiUrlnivel = 'http://localhost:3000/nivel'; 
-  private apiUrljornada = 'http://localhost:3000/jornada'; 
-  private apiUrlcarrera = 'http://localhost:3000/carrera'; 
-  private apiUrlrol = 'http://localhost:3000/rol'; 
-  private apiUrlestado = 'http://localhost:3000/estado'; 
-  private apiUrlrama = 'http://localhost:3000/rama'; 
-  private apiUrlfacultad = 'http://localhost:3000/facultad'; 
-  private apiUrlasignatura = 'http://localhost:3000/asignatura';
+  private apiUrldias = 'http://localhost:3000/catalogo/dias';
+  private apiUrlparalelo = 'http://localhost:3000/catalogo/paralelo';
+  private apiUrlnivel = 'http://localhost:3000/catalogo/nivel';
+  private apiUrljornada = 'http://localhost:3000/catalogo/jornada';
+  private apiUrlcarrera = 'http://localhost:3000/catalogo/carrera';
+  private apiUrlrol = 'http://localhost:3000/catalogo/rol';
+  private apiUrlestado = 'http://localhost:3000/catalogo/estado';
+  private apiUrlrama = 'http://localhost:3000/catalogo/rama';
+  private apiUrlfacultad = 'http://localhost:3000/catalogo/facultad';
+  private apiUrlasignatura = 'http://localhost:3000/asignaturas';
 
-  constructor(private http: HttpClient) {  }
+  constructor(private http: HttpClient) { }
 
   getDias(): Observable<any> {
     return this.http.get<any>(this.apiUrldias);
