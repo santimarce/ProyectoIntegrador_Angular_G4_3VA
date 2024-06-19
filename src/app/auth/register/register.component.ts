@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit{
+export class RegisterComponent implements OnInit {
   title = 'Sistema de Gestión de horarios ITS YAVIRAC';
   opened = false;
 
@@ -31,12 +31,4 @@ export class RegisterComponent implements OnInit{
     throw new Error('Method not implemented.');
   }
 
-  onSubmit() {
-    this.userService.register(this.formReg.value)
-    .then(response => {
-      console.log(response);
-      this.router.navigate(['/login']);
-    })
-    .catch(error => console.log(error));
-  }
 }

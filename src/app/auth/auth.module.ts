@@ -9,6 +9,9 @@ import { SharedModule } from '../shared/shared.module';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/material.module';
+import { HttpClient } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { UserService } from './auth.service';
 
 
 @NgModule({
@@ -21,9 +24,10 @@ import { MaterialModule } from 'src/material.module';
     CommonModule,
     AuthRoutingModule,
     SharedModule,
-
     ReactiveFormsModule,
-    MaterialModule
-  ]
+    MaterialModule,
+    BrowserModule
+  ],
+
 })
 export class AuthModule { }

@@ -6,7 +6,7 @@ import { PagesRoutingModule } from './pages/pages-routing.module';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: '**', component: NopagesfoundComponent}
+  { path: '**', redirectTo: '/login', pathMatch: 'full' }
 ];
 
 @NgModule({
@@ -17,6 +17,6 @@ const routes: Routes = [
     PagesRoutingModule],
   exports: [RouterModule]
 })
-export class AppRoutingModule { 
-  
+export class AppRoutingModule {
+
 }
